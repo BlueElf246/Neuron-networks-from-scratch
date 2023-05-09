@@ -12,8 +12,8 @@ def preprocessing(dataset):
 features = preprocessing(features)
 X = np.array(features).T
 Y = np.expand_dims(labels, axis=0)
-params, cost = L_layer_model(X, Y, lamda=0., dropout_prob=[1.0,0.9,0.7,1.0],
-                             layer_dims=layer_dims, num_iterations=1000,
+params, cost = L_layer_model(X, Y, lamda=0.1, dropout_prob=[1.0,0.5,0.5,1.0],
+                             layer_dims=layer_dims, num_iterations=2000,
                              learning_rate=0.1, print_cost=True, last_layer = 'sigmoid')
 
 y_hat = predict(X, params, lastlayer='sigmoid')
