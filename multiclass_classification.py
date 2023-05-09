@@ -25,7 +25,10 @@ num_class = y_test.shape[1]
 
 layer_dims = [num_feature, 32,32, num_class]
 print(y_test.shape)
-params, costs = L_layer_model(X_test.T, y_test.T, layer_dims, last_layer='softmax', learning_rate=0.1, num_iterations=2000, print_cost=True)
+params, costs = L_layer_model(X_train.T, y_train.T, layer_dims,
+                              lamda=0.1 , last_layer='softmax',
+                              learning_rate=0.1, num_iterations=1000,
+                              print_cost=True, dropout_prob=0.8)
 
 y_hat = predict(X_test.T, params, lastlayer='softmax')
 print(acc(y_hat, y_raw))
