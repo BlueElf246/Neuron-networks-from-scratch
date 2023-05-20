@@ -7,12 +7,16 @@ Untill now, I have implemented a set of functions for making neuron networks. Yo
 
 Features in nn_lib_v2.
 -> binary_classfication with last layer is sigmoid
+
 -> multiclass classification with last layer is softmax
+
 -> 'he' initilization
 
 ### UPDATE nn_lib_v3.
 -> provide L2 normalization
+
 -> provide dropout
+
 -> adding mini-batch gradient descent
 
 There are two application that use this lib named binary_classification.py and multiclass_classfication.py, where you have to download mnist dataset by yourself
