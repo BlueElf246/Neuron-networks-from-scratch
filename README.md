@@ -1,5 +1,5 @@
 # Neuron-networks-from-scratch
-Hello welcome to my min-project on implementing deep learning architectures(ANN, CNN, RNN) from scratch. I also provide sample dataset to test out these models.
+Hello welcome to my weekend-project on implementing deep learning architectures(ANN, CNN, RNN) from scratch. I also provide sample dataset to test out these models.
 
 It is also have the comparation part. Where I will write some codes to compare accuracy with different hyperparameters choice.
 
@@ -13,6 +13,7 @@ Features in nn_lib_v2.
 ### UPDATE nn_lib_v3.
 -> provide L2 normalization
 -> provide dropout
+-> adding mini-batch gradient descent
 
 There are two application that use this lib named binary_classification.py and multiclass_classfication.py, where you have to download mnist dataset by yourself
 
