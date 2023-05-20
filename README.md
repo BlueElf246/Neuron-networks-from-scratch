@@ -8,7 +8,7 @@ How to use it?🧐🧐🧐:
 
 All the code are in nn_lib_v2,v3
 
-# If you what to understand the math behind NN, I have written a small paper that explain everything(Implementing_Neuron_Network_from_scratch.pdf). Feel free to take a look at it 😩💁🏽🤩
+If you what to understand the math behind NN, I have written a small paper that explain everything(Implementing_Neuron_Network_from_scratch.pdf). Feel free to take a look at it 😩💁🏽🤩
 
 It is also have the comparation part. Where I will write some codes to compare accuracy with different hyperparameters choice.
 
