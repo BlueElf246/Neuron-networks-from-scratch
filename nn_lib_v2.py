@@ -123,18 +123,23 @@ def update_parameters(params, grads, learning_rate):
     return parameters
 
 
-def L_layer_model(X, Y, layer_dims, learning_rate=0.001, num_iterations=3000,
-                  print_cost=False, last_layer = 'sigmoid', lamda=1.0, dropout_prob=1.0):
+def L_layer_model(X, Y, layer_dims, learning_rate=0.001, epochs=3000,
+                  print_cost=False, last_layer = 'sigmoid', lamda=1.0, dropout_prob=1.0, batch_size=32):
     costs = []
     parameters = initialize_parameters(layer_dims)
-    for i in range(0, num_iterations):
-        AL, caches = L_model_forward(X, parameters, last_layer= last_layer)
-        cost = compute_cost(AL, Y, last_layer=last_layer)
-        grads = L_model_backward(AL, Y, caches)
+    bat_gen = BatchGenerator(X, Y, batch_size)
+    for i in range(0, epochs):
+        for j in range(bat_gen.num_of_batch):
+            if j == bat_gen.num_of_batch-1:
+                bat_gen.reset()
+            X_batch, y_batch = bat_gen.next()
+            AL, caches = L_model_forward(X_batch, parameters, last_layer= last_layer)
+            cost = compute_cost(AL, y_batch, last_layer=last_layer)
+            grads = L_model_backward(AL, y_batch, caches)
 
-        parameters = update_parameters(parameters, grads, learning_rate)
+            parameters = update_parameters(parameters, grads, learning_rate)
 
-        if print_cost and i % 100 == 0:
+        if print_cost and i % 10 == 0:
             print(cost, f'at iter {i}')
             costs.append(cost)
     return parameters, cost
@@ -156,3 +161,24 @@ def acc(predict, label):
         if int(y_hat[x]) == label[x]:
             c += 1
     return c / y_hat.shape[0]
+
+class BatchGenerator:
+    def __init__(self, X, y, batch_size=32):
+        self.X = X
+        self.y = y
+        self.batch_size=32
+        self.index=0
+        self.batch_size = batch_size
+        self.num_of_batch = np.ceil(X.shape[0] / batch_size).astype('int16')
+        print(self.num_of_batch)
+    def reset(self):
+        self.index =0
+        # idx = np.random.permutation(self.X.shape[0])
+        # self.X = self.X[idx]
+        # self.y = self.y[idx]
+
+    def next(self):
+        X_batch = self.X[self.index:self.index+self.batch_size]
+        y_batch = self.y[self.index:self.index+self.batch_size]
+        self.index += self.batch_size
+        return X_batch.T, y_batch.T

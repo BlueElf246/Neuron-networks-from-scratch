@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
-from nn_lib_v2 import *
+from nn_lib_v3 import *
 def preprocess(dataset, expand_dims = True, normalize = True, one_hot_encoding = False):
     dataset = np.array(dataset).copy()
     features, label = dataset[:,1:], dataset[:,0]
@@ -24,22 +24,13 @@ num_feature = X_test.shape[1]
 num_class = y_test.shape[1]
 
 layer_dims = [num_feature, 32,32, num_class]
-print(y_test.shape)
-params, costs = L_layer_model(X_train.T, y_train.T, layer_dims,
+params, costs = L_layer_model(X_train, y_train, layer_dims,
                               lamda=0.1 , last_layer='softmax',
-                              learning_rate=0.1, num_iterations=1000,
-                              print_cost=True, dropout_prob=0.8)
+                              learning_rate=0.1, epochs=100,
+                              print_cost=True, dropout_prob=1.0, batch_size=1024)
 
 y_hat = predict(X_test.T, params, lastlayer='softmax')
 print(acc(y_hat, y_raw))
 
-# params = initialize_parameters(layer_dims)
-# AL, caches = L_model_forward(X_test.T, params, last_layer='softmax')
-# grads = L_model_backward(AL, y_test, caches, last_layer='softmax')
-# Y = y_test.reshape(AL.shape)
-# dAL = -(np.divide(Y, AL))
-# current_cache = caches[-1]
-# linear_cache, activation_cache = current_cache
-# softmax_backward(dAL, activation_cache)
 
 

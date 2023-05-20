@@ -10,13 +10,12 @@ def preprocessing(dataset):
         dataset[:,col] = (dataset[:,col] - mean) / var
     return dataset
 features = preprocessing(features)
-X = np.array(features).T
-Y = np.expand_dims(labels, axis=0)
-params, cost = L_layer_model(X, Y, lamda=0.1, dropout_prob=[1.0,0.5,0.5,1.0],
-                             layer_dims=layer_dims, num_iterations=2000,
-                             learning_rate=0.1, print_cost=True, last_layer = 'sigmoid')
+X = np.array(features)
+Y = np.expand_dims(labels, axis=1)
+params, cost = L_layer_model(X, Y, lamda=0, dropout_prob=[1.0, 1.0, 1.0, 1.0],
+                             layer_dims=layer_dims, epochs=1000,
+                             learning_rate=0.1, print_cost=True, last_layer='sigmoid', batch_size=500)
 
-y_hat = predict(X, params, lastlayer='sigmoid')
-print(y_hat)
+y_hat = predict(X.T, params, lastlayer='sigmoid')
 print(acc(y_hat, Y))
 
