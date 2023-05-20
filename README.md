@@ -1,6 +1,15 @@
 # Neuron-networks-from-scratch
 Hello welcome to my weekend-project on implementing deep learning architectures(ANN, CNN, RNN) from scratch. I also provide sample dataset to test out these models.
 
+How to use it?🧐🧐🧐:
+
+1/ Clone this git
+2/ run binary_classification.py for example, run multiclass_classification.py(you should download mnist dataset)
+
+All the code are in nn_lib_v2,v3
+
+# If you what to understand the math behind NN, I have written a small paper that explain everything(Implementing_Neuron_Network_from_scratch.pdf). Feel free to take a look at it 😩💁🏽🤩
+
 It is also have the comparation part. Where I will write some codes to compare accuracy with different hyperparameters choice.
 
 Untill now, I have implemented a set of functions for making neuron networks. You can see all of it in nn_lib_v2.
@@ -18,6 +27,8 @@ Features in nn_lib_v2.
 -> provide dropout
 
 -> adding mini-batch gradient descent
+
+# Note: prefer using nn_lib_v2 because drop_out feature in nn_lin_v3 very slow 😳
 
 There are two application that use this lib named binary_classification.py and multiclass_classfication.py, where you have to download mnist dataset by yourself
 
