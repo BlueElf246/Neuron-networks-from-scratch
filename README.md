@@ -28,7 +28,7 @@ Features in nn_lib_v2.
 
 -> adding mini-batch gradient descent
 
-# Note: prefer using nn_lib_v2 because drop_out feature in nn_lin_v3 very slow 😳
+# Note: prefer using nn_lib_v2 because drop_out feature in nn_lib_v3 very slow 😳
 
 There are two application that use this lib named binary_classification.py and multiclass_classfication.py, where you have to download mnist dataset by yourself
 
