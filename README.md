@@ -10,6 +10,10 @@ Features in nn_lib_v2.
 -> multiclass classification with last layer is softmax
 -> 'he' initilization
 
+### UPDATE nn_lib_v3.
+-> provide L2 normalization
+-> provide dropout
+
 There are two application that use this lib named binary_classification.py and multiclass_classfication.py, where you have to download mnist dataset by yourself
 
 The code is partly borrowed from propramming exercise in course 1 in the serie of deep learning course taught by Andrew Ng.
