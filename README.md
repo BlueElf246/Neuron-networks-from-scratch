@@ -1,14 +1,14 @@
 # Neuron-networks-from-scratch
 Hello welcome to my weekend-project on implementing deep learning architectures(ANN, CNN, RNN) from scratch. I also provide sample dataset to test out these models.
 
+If you what to understand the math behind NN, I have written a small paper that explain everything(Implementing_Neuron_Network_from_scratch.pdf). Feel free to take a look at it 😩💁🏽🤩
+
 How to use it?🧐🧐🧐:
 
 1/ Clone this git
 2/ run binary_classification.py for example, run multiclass_classification.py(you should download mnist dataset)
 
 All the code are in nn_lib_v2,v3
-
-If you what to understand the math behind NN, I have written a small paper that explain everything(Implementing_Neuron_Network_from_scratch.pdf). Feel free to take a look at it 😩💁🏽🤩
 
 It is also have the comparation part. Where I will write some codes to compare accuracy with different hyperparameters choice.
 
